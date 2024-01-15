@@ -1,5 +1,49 @@
 models:
-  # ...
+  models:
+  Conference:
+    name: string
+    city: string
+    country: string
+    postal_code: string
+
+  Venue:
+    name: string
+    description: text
+    start_date: datetime
+    end_date: datetime
+    status: string
+    region: string
+    conference_id: foreignId
+
+  Speaker:
+    name: string
+    email: string
+    biography: text
+    twitter: string
+
+  Talk:
+    title: string
+    description: text
+    speaker_id: foreignId
+    conference_id: foreignId
+
+relations:
+  Conference:
+    venues: hasMany(Venue)
+    talks: hasManyThrough(Talk, Venue)
+
+  Venue:
+    conference: belongsTo(Conference)
+    talks: hasMany(Talk)
+
+  Speaker:
+    talks: hasMany(Talk)
+
+  Talk:
+    speaker: belongsTo(Speaker)
+    venue: belongsTo(Venue)
+    conference: belongsTo(Conference)
+
 
 controllers:
   # ...
