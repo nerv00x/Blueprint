@@ -1,5 +1,4 @@
 models:
-  models:
   Conference:
     name: string
     city: string
@@ -43,7 +42,3 @@ relations:
     speaker: belongsTo(Speaker)
     venue: belongsTo(Venue)
     conference: belongsTo(Conference)
-
-
-controllers:
-  # ...

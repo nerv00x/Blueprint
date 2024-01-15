@@ -1,2 +1,19 @@
+created:
+    - database/factories/ConferenceFactory.php
+    - database/factories/VenueFactory.php
+    - database/factories/SpeakerFactory.php
+    - database/factories/TalkFactory.php
+    - database/migrations/2024_01_15_195801_create_conferences_table.php
+    - database/migrations/2024_01_15_195802_create_venues_table.php
+    - database/migrations/2024_01_15_195803_create_speakers_table.php
+    - database/migrations/2024_01_15_195804_create_talks_table.php
+    - app/Models/Conference.php
+    - app/Models/Venue.php
+    - app/Models/Speaker.php
+    - app/Models/Talk.php
 models:
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Conference: { name: string, city: string, country: string, postal_code: string }
+    Venue: { name: string, description: text, start_date: datetime, end_date: datetime, status: string, region: string, conference_id: foreignId }
+    Speaker: { name: string, email: string, biography: text, twitter: string }
+    Talk: { title: string, description: text, speaker_id: foreignId, conference_id: foreignId }
